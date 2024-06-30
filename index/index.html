@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My AI service page</title>
+  </head>
+  <body>
+    <h1>Text to Speech</h1>
+    <form action="/submit" method="post">
+      <label for="text">Enter text:</label><br>
+      <input type="text" id="text" name="text"><br>
+      <input type="submit" value="Submit">
+  </form>
+  {% if audio_url %}
+  <audio controls>
+      <source src="{{ audio_url }}" type="audio/mpeg">
+      Your browser does not support the audio element.
+  </audio>
+  {% endif %}
+</body>
+</html>
+// Added audio playback feature to the HTML template.
