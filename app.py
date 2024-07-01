@@ -50,6 +50,10 @@ def result():
     return render_template('result.html', audio_file=audio_file)
 
 if __name__ == '__main__':
+<<<<<<< HEAD
     app.run(host='0.0.0.0', port=8000)
     print("Commit message: Added speech synthesis feature using AWS Polly and error handling.")
     print("Commit message: Implemented speech synthesis using AWS Polly and added error handling for file and stream operations.")
+=======
+    app.run(host='0.0.0.0', port=8080)
+>>>>>>> 071698ec4712dd610de566987797d849236e8100
