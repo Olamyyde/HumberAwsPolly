@@ -21,7 +21,7 @@ def submit():
         # Request speech synthesis
         response = polly.synthesize_speech(Text=text, OutputFormat="mp3", VoiceId="Joanna")
     except (BotoCoreError, ClientError) as error:
-        # The service returned an error, exit gracefully
+        
         print(error)
         return "Error: Could not synthesize speech."
 
@@ -33,12 +33,10 @@ def submit():
             with closing(response["AudioStream"]) as stream:
                 with open(output, "wb") as file:
                     file.write(stream.read())
-        except IOError as error:
-            # Could not write to file, exit gracefully
+        except IOError as error:            
             print(error)
             return "Error: Could not write to file."
     else:
-        # The response didn't contain audio data, exit gracefully
         print("Could not stream audio")
         return "Error: Could not stream audio."
 
@@ -50,10 +48,5 @@ def result():
     return render_template('result.html', audio_file=audio_file)
 
 if __name__ == '__main__':
-<<<<<<< HEAD
     app.run(host='0.0.0.0', port=8000)
-    print("Commit message: Added speech synthesis feature using AWS Polly and error handling.")
-    print("Commit message: Implemented speech synthesis using AWS Polly and added error handling for file and stream operations.")
-=======
-    app.run(host='0.0.0.0', port=8080)
->>>>>>> 071698ec4712dd610de566987797d849236e8100
+    
